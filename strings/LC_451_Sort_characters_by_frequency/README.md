@@ -2,41 +2,54 @@
 
 ## Problem
 
-Given a string `s`, sort its characters in **decreasing order of their frequency** and return the resulting string.
+Given a string `s`, sort its characters in **decreasing order of their frequency**.
 
-If multiple characters have the same frequency, any valid order is accepted.
-
----
-
-## Key Observation 💡
-
-The problem does **not** ask us to sort the entire string directly.
-
-Instead:
-
-1. Count how many times each character appears.
-2. Sort the characters based on their frequencies.
-3. Construct the answer by repeating each character according to its frequency.
+The frequency of a character is the number of times it appears in the string. If multiple characters have the same frequency, any valid ordering is accepted.
 
 ---
 
-## Approach
+## Approach 1 - Frequency Array
 
-### Step 1
+### Thought Process
 
-Traverse the string and count the frequency of every character using a hash map.
+Since the string contains only:
 
-### Step 2
+* Digits (`0-9`)
+* Uppercase letters (`A-Z`)
+* Lowercase letters (`a-z`)
 
-Store all `(character, frequency)` pairs into a vector.
+we can maintain a frequency array indexed using the ASCII value offset.
 
-### Step 3
+### Steps
 
-Sort the vector in **descending order of frequency**.
+1. Count the frequency of every character.
+2. Store both the frequency and the corresponding character index.
+3. Sort the array in descending order of frequency.
+4. Append each character `frequency` times to the answer.
 
-### Step 4
+### Complexity
 
-Traverse the sorted vector and append each character `frequency` times to the answer string.
+* **Time Complexity:** `O(n + k log k)`
+* **Space Complexity:** `O(k)`
+
+where `k` is the size of the character set used.
+
+---
+
+## Approach 2 - Hash Map (Cleaner)
+
+### Key Observation 💡
+
+Instead of maintaining a fixed-size frequency array, we can use a hash map to count frequencies.
+
+### Steps
+
+1. Count frequencies using an `unordered_map`.
+2. Store all `(character, frequency)` pairs into a vector.
+3. Sort the vector based on frequency.
+4. Construct the answer by repeating each character according to its frequency.
+
+This approach is more generic and works even if the character set changes.
 
 ---
 
@@ -48,12 +61,12 @@ Traverse the sorted vector and append each character `frequency` times to the an
 s = "tree"
 ```
 
-Frequency Map
+Frequency Count
 
 ```text
+e → 2
 t → 1
 r → 1
-e → 2
 ```
 
 After Sorting
@@ -67,27 +80,31 @@ r → 1
 Output
 
 ```text
-"eetr"
+"eert"
 ```
 
-(or `"eert"`)
+(`"eetr"` is also valid.)
 
 ---
 
 ## Complexity
 
+### Approach 1
+
 * **Time Complexity:** `O(n + k log k)`
+* **Space Complexity:** `O(k)`
 
-  * `n` = length of the string
-  * `k` = number of distinct characters
+### Approach 2
 
+* **Time Complexity:** `O(n + k log k)`
 * **Space Complexity:** `O(k)`
 
 ---
 
 ## What I Learned ⭐
 
-* Hash maps are useful for frequency counting.
-* After counting frequencies, converting the hash map into a vector makes sorting easy.
-* A custom comparator can sort based on frequency instead of characters.
-* Building the answer using `string(freq, ch)` is cleaner than appending characters one by one.
+* Frequency counting is one of the most common applications of hashing.
+* A frequency array works well when the character set is fixed and known.
+* A hash map is cleaner, more flexible, and easier to adapt for different character sets.
+* `string(freq, ch)` is a neat STL constructor for appending the same character multiple times.
+* Custom comparators allow sorting by frequency instead of character values.

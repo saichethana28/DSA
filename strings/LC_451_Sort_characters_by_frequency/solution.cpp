@@ -1,40 +1,79 @@
+```cpp
 /*
 LeetCode 451 - Sort Characters By Frequency
 
-Approach:
-1. Count the frequency of each character using a hash map.
-2. Store (character, frequency) pairs in a vector.
-3. Sort the vector in descending order of frequency.
-4. Append each character frequency times to the answer.
+Approach 1 : Frequency Array
+- Count frequency using an array.
+- Store frequency and corresponding character index.
+- Sort by frequency.
+- Construct the answer.
 
 Time Complexity : O(n + k log k)
 Space Complexity: O(k)
 
-where:
-n = length of the string
-k = number of distinct characters
+---------------------------------------------------------
+
+Approach 2 : Hash Map (Cleaner)
+- Count frequencies using unordered_map.
+- Store (character, frequency) pairs in a vector.
+- Sort by descending frequency.
+- Build the answer string.
+
+Time Complexity : O(n + k log k)
+Space Complexity: O(k)
 */
 
 #include <bits/stdc++.h>
 using namespace std;
+
+/*=========================================================
+Approach 1 : Frequency Array
+=========================================================*/
+
+// class Solution {
+// public:
+//     string frequencySort(string s) {
+//         vector<pair<int, int>> freq(122 - 48 + 1, {0, 0});
+//         string ans;
+//
+//         for (char c : s) {
+//             freq[c - '0'].first++;
+//             freq[c - '0'].second = c - '0';
+//         }
+//
+//         sort(freq.begin(), freq.end(),
+//              [](const auto &a, const auto &b) {
+//                  return a.first > b.first;
+//              });
+//
+//         for (auto &it : freq) {
+//             char ch = it.second + '0';
+//             int count = it.first;
+//
+//             if (count > 0) {
+//                 ans += string(count, ch);
+//             }
+//         }
+//
+//         return ans;
+//     }
+// };
+
+/*=========================================================
+Approach 2 : Hash Map (Optimized & Cleaner)
+=========================================================*/
 
 class Solution {
 public:
     string frequencySort(string s) {
         unordered_map<char, int> mp;
 
-        // Count frequency of each character
         for (char c : s) {
             mp[c]++;
         }
 
-        // Store (character, frequency) pairs
-        vector<pair<char, int>> freq;
-        for (auto &it : mp) {
-            freq.push_back(it);
-        }
+        vector<pair<char, int>> freq(mp.begin(), mp.end());
 
-        // Sort by frequency in descending order
         sort(freq.begin(), freq.end(),
              [](const auto &a, const auto &b) {
                  return a.second > b.second;
@@ -42,7 +81,6 @@ public:
 
         string ans;
 
-        // Construct the answer
         for (auto &it : freq) {
             ans += string(it.second, it.first);
         }
