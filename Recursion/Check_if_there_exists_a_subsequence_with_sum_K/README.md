@@ -118,3 +118,15 @@ public:
 - Understood how early return avoids exploring unnecessary branches.
 - Learned the **Take / Don't Take** recursion pattern.
 - Realized this recursive solution can later be optimized using Dynamic Programming.
+
+---
+
+ **Recursion Tip 💡**
+
+Each recursive call completely explores its own subtree.
+
+ - **Take → true** ⇒ Stop and return `true`.
+- **Take → false** ⇒ Try **Don't Take**.
+- **Don't Take → false** ⇒ Return `false` to the parent.
+
+ A recursive call returns `false` only after **both choices have failed**.
