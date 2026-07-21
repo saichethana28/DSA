@@ -31,7 +31,7 @@ Since every element can be selected multiple times, this explores a huge number 
 
 ---
 
-# Better Approach (Backtracking)
+# Optimal Approach (Backtracking)
 
 ## Key Observation
 
