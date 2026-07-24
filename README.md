@@ -17,7 +17,6 @@ This repository contains my solutions to Data Structures and Algorithms problems
 - Arrays
 - Strings
 - Recursion
-- Practice
 
 ## Goals
 
