@@ -9,7 +9,7 @@ This repository contains my solutions to Data Structures and Algorithms problems
 
 ## Platforms
 - LeetCode
-- HackerRank
+- geeksforgeeks
 
 ## Repository Structure
 
