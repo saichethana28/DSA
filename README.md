@@ -13,7 +13,7 @@ This repository contains my solutions to Data Structures and Algorithms problems
 
 ## Repository Structure
 
-- Daily-Challenges
+- Daily Challenges
 - Arrays
 - Strings
 - Recursion
