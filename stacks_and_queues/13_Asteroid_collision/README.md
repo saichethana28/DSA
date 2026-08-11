@@ -40,7 +40,7 @@ A collision can happen only when:
 `stack.top() > 0 && current asteroid < 0`
 
 ### Code
-
+```cpp
 class Solution {
 public:
     vector<int> asteroidCollision(vector<int>& asteroids) {
@@ -83,7 +83,7 @@ public:
         return ans;
     }
 };
-
+```
 ## Complexity
 
 - Time: `O(N)`
