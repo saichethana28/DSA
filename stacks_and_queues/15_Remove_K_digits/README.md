@@ -65,7 +65,7 @@ Result:
 ---
 
 ## Code
-
+```cpp
 class Solution {
 public:
     string removeKdigits(string num, int k) {
@@ -107,7 +107,7 @@ public:
         return ans.substr(i);
     }
 };
-
+```
 ## Complexity
 
 - Time: `O(N)`
