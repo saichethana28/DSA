@@ -47,7 +47,7 @@ My initial recursion generated subsequences instead of subarrays because take/no
 - This handles duplicate values without double-counting.
 
 ### Code
-
+```cpp
 class Solution {
 public:
     const int mod = 1e9 + 7;
@@ -115,7 +115,7 @@ public:
         return ans;
     }
 };
-
+```
 ## Complexity
 
 - Time: O(N)
