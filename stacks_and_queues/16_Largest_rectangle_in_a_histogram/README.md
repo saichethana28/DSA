@@ -135,7 +135,7 @@ public:
 8. After traversal, process remaining bars using `n` as their right boundary.
 
 ### Code
-
+```cpp
 class Solution {
 public:
     int largestRectangleArea(vector<int>& heights) {
@@ -178,7 +178,7 @@ public:
         return ans;
     }
 };
-
+```
 ### Complexity
 
 - Time: `O(N)`
