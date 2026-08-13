@@ -24,7 +24,7 @@ For every index, trapped water depends on the maximum height on its left and rig
 4. Move that pointer inward until both pointers meet.
 
 ### Code
-
+```cpp
 class Solution {
 public:
     int trap(vector<int>& height) {
@@ -50,7 +50,7 @@ public:
         return ans;
     }
 };
-
+```
 ## Complexity
 
 - Time: O(N)
