@@ -18,6 +18,7 @@ This repository contains my solutions to Data Structures and Algorithms problems
 - Strings
 - Recursion
 - Bit Manipulation
+- Stacks and Queues
 
 ## Goals
 
